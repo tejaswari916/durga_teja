@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Durga ❤️ Teju</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            color: white;
+
+            background-image:
+                linear-gradient(
+                    rgba(70, 0, 35, 0.58),
+                    rgba(120, 0, 60, 0.68)
+                ),
+                url("memories/background1.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+
+        /* ================================
+           PASSWORD SCREEN
+        ================================= */
+
+        #passwordScreen {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+        }
+
+        .passwordCard {
+            width: 90%;
+            max-width: 520px;
+
+            padding: 50px 30px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.15);
+
+            border: 1px solid rgba(255,255,255,0.4);
+
+            border-radius: 35px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,0.4);
+
+            animation: cardAppear 1.2s ease;
+        }
+
+        .lock {
+            font-size: 70px;
+
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .passwordCard h1 {
+            margin-top: 20px;
+
+            font-size:
+                clamp(30px, 7vw, 43px);
+        }
+
+        .passwordCard p {
+            margin-top: 15px;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: #ffeaf3;
+        }
+
+        .passwordInput {
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 15px 20px;
+
+            border: none;
+            outline: none;
+
+            border-radius: 50px;
+
+            text-align: center;
+
+            font-size: 17px;
+        }
+
+        .unlockButton {
+            margin-top: 20px;
+
+            padding: 15px 32px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background: white;
+
+            color: #b51758;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .unlockButton:hover {
+            transform: scale(1.08);
+        }
+
+        #wrongPassword {
+            display: none;
+
+            margin-top: 15px;
+
+            color: #ffd1df;
+
+            font-size: 16px;
+        }
+
+
+        /* ================================
+           QUESTION SCREEN
+        ================================= */
+
+        #questionScreen {
+            min-height: 100vh;
+
+            display: none;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+        }
+
+        .questionCard {
+            width: 90%;
+            max-width: 550px;
+
+            padding: 50px 30px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.14);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.4);
+
+            border-radius: 35px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,0.35);
+
+            animation: cardAppear 1.2s ease;
+        }
+
+        .bigHeart {
+            font-size: 75px;
+
+            animation:
+                heartbeat 1.2s infinite;
+        }
+
+        .questionCard h1 {
+            margin-top: 20px;
+
+            font-size:
+                clamp(30px, 7vw, 45px);
+        }
+
+        .questionCard p {
+            margin-top: 20px;
+
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            color: #ffeaf3;
+        }
+
+        .buttons {
+            margin-top: 30px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .buttons button {
+            padding: 15px 32px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .yesButton {
+            background: white;
+
+            color: #b51758;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.25);
+        }
+
+        .noButton {
+            background:
+                rgba(255,255,255,0.15);
+
+            color: white;
+
+            border:
+                1px solid white !important;
+        }
+
+        .buttons button:hover {
+            transform: scale(1.08);
+        }
+
+
+        /* ================================
+           SURPRISE WEBSITE
+        ================================= */
+
+        #surpriseWebsite {
+            display: none;
+
+            min-height: 100vh;
+
+            padding: 30px;
+        }
+
+        .container {
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+        .card {
+            width: 100%;
+
+            max-width: 720px;
+
+            padding: 50px 30px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.14);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.4);
+
+            border-radius: 35px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,0.35);
+
+            animation:
+                cardAppear 1.3s ease;
+        }
+
+        .sparkle {
+            font-size: 28px;
+
+            letter-spacing: 8px;
+
+            animation:
+                sparkle 2s infinite;
+        }
+
+        .smallTitle {
+            margin-top: 15px;
+
+            font-size: 17px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .anniversary {
+            margin-top: 25px;
+
+            font-size:
+                clamp(38px, 9vw, 72px);
+
+            line-height: 1.1;
+
+            text-shadow:
+                0 0 10px #ffb6d9,
+                0 0 25px #ff4f91,
+                0 0 45px #ff176f;
+
+            animation:
+                glow 2s infinite alternate;
+        }
+
+        .names {
+            margin-top: 30px;
+
+            font-size:
+                clamp(35px, 8vw, 60px);
+
+            font-weight: bold;
+        }
+
+        .names span {
+            color: #ffb6d9;
+
+            margin: 0 10px;
+
+            display: inline-block;
+
+            animation:
+                heartbeat 1.2s infinite;
+        }
+
+        .subtitle {
+            margin-top: 20px;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            color: #ffeaf3;
+        }
+
+        .surpriseButton {
+            margin-top: 30px;
+
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background: white;
+
+            color: #b51758;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.25);
+
+            transition: 0.3s;
+        }
+
+        .surpriseButton:hover {
+            transform: scale(1.08);
+        }
+
+
+        /* ================================
+           LOVE MESSAGE
+        ================================= */
+
+        #loveMessage {
+            display: none;
+
+            margin-top: 35px;
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,255,255,0.12);
+
+            animation:
+                messageAppear 1.2s ease;
+        }
+
+        #loveMessage h2 {
+            font-size: 32px;
+
+            margin-bottom: 20px;
+        }
+
+        #loveMessage p {
+            font-size: 19px;
+
+            line-height: 1.9;
+
+            color: #fff2f7;
+        }
+
+        .forever {
+            margin-top: 25px;
+
+            font-size: 27px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================================
+           SONG
+        ================================= */
+
+        .songBox {
+            margin-top: 40px;
+
+            padding: 30px 20px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,255,255,0.13);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.3);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.2);
+        }
+
+        .songBox h2 {
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+        .songBox p {
+            font-size: 17px;
+
+            margin-bottom: 20px;
+
+            color: #ffeaf3;
+        }
+
+        .songBox audio {
+            width: 100%;
+
+            max-width: 500px;
+        }
+
+
+        /* ================================
+           VIDEO
+        ================================= */
+
+        .videoBox {
+            margin-top: 35px;
+
+            padding: 30px 20px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,255,255,0.13);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.3);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.2);
+        }
+
+        .videoBox h2 {
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+        .videoBox p {
+            font-size: 17px;
+
+            margin-bottom: 20px;
+
+            color: #ffeaf3;
+        }
+
+        .videoButton {
+            padding:
+                15px 30px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background: white;
+
+            color: #b51758;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .videoButton:hover {
+            transform: scale(1.08);
+        }
+
+        #videoContainer {
+            display: none;
+
+            margin-top: 25px;
+        }
+
+        #videoContainer video {
+            width: 100%;
+
+            max-height: 500px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.4);
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        .footer {
+            margin-top: 30px;
+
+            font-size: 15px;
+
+            opacity: 0.8;
+        }
+
+
+        /* ================================
+           FLOATING HEARTS
+        ================================= */
+
+        .heart {
+            position: fixed;
+
+            bottom: -60px;
+
+            font-size: 25px;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            animation:
+                floatHeart 8s linear infinite;
+        }
+
+        .heart:nth-child(1) {
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 28%;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(4) {
+            left: 42%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(5) {
+            left: 58%;
+            animation-delay: 3s;
+        }
+
+        .heart:nth-child(6) {
+            left: 72%;
+            animation-delay: 5s;
+        }
+
+        .heart:nth-child(7) {
+            left: 85%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(8) {
+            left: 95%;
+            animation-delay: 4s;
+        }
+
+
+        /* ================================
+           ANIMATIONS
+        ================================= */
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    scale(0.8)
+                    translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.35);
+            }
+        }
+
+        @keyframes sparkle {
+
+            50% {
+                transform: scale(1.2);
+
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes glow {
+
+            from {
+                text-shadow:
+                    0 0 10px #ffb6d9,
+                    0 0 20px #ff4f91;
+            }
+
+            to {
+                text-shadow:
+                    0 0 20px white,
+                    0 0 40px #ff176f,
+                    0 0 60px #ff176f;
+            }
+        }
+
+        @keyframes floatHeart {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+        @keyframes messageAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .passwordCard,
+            .questionCard,
+            .card {
+                padding:
+                    40px 20px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+            }
+
+            #loveMessage p {
+                font-size: 17px;
+            }
+
+            .buttons {
+                gap: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         PASSWORD SCREEN
+    ================================= -->
+
+    <div id="passwordScreen">
+
+        <div class="passwordCard">
+
+            <div class="lock">
+                🔐
+            </div>
+
+            <h1>
+                A Secret For You ❤️
+            </h1>
+
+            <p>
+                This little surprise is private...
+                <br>
+                Only someone special can enter. 💕
+            </p>
+
+            <input
+                type="password"
+                id="passwordInput"
+                class="passwordInput"
+                placeholder="Enter the secret password"
+                onkeydown="checkEnter(event)"
+            >
+
+            <br>
+
+            <button
+                class="unlockButton"
+                onclick="checkPassword()">
+
+                🔓 Unlock My Surprise
+
+            </button>
+
+            <div id="wrongPassword">
+                Wrong password... try again, Bujji ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         QUESTION SCREEN
+    ================================= -->
+
+    <div id="questionScreen">
+
+        <div class="questionCard">
+
+            <div class="bigHeart">
+                💌
+            </div>
+
+            <h1>
+                Are you opening this?
+            </h1>
+
+            <p>
+                I made a little surprise
+                especially for you... ❤️
+
+                <br><br>
+
+                Are you sure you want to open it?
+            </p>
+
+            <div class="buttons">
+
+                <button
+                    class="yesButton"
+                    onclick="openWebsite()">
+
+                    YES ❤️
+
+                </button>
+
+                <button
+                    class="noButton"
+                    onclick="doNothing()">
+
+                    NO 🙈
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         SURPRISE WEBSITE
+    ================================= -->
+
+    <div id="surpriseWebsite">
+
+
+        <!-- Floating hearts -->
+
+        <div class="heart">❤️</div>
+        <div class="heart">💗</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💘</div>
+        <div class="heart">❤️</div>
+        <div class="heart">💗</div>
+        <div class="heart">💕</div>
+
+
+        <div class="container">
+
+            <div class="card">
+
+                <div class="sparkle">
+                    ✨ 💖 ✨
+                </div>
+
+
+                <div class="smallTitle">
+                    A little surprise
+                    for my special person
+                </div>
+
+
+                <h1 class="anniversary">
+
+                    HAPPY ANNIVERSARY,
+
+                    <br>
+
+                    BUJJI ❤️
+
+                </h1>
+
+
+                <div class="names">
+
+                    durga
+
+                    <span>
+                        ❤️
+                    </span>
+
+                    teju
+
+                </div>
+
+
+                <p class="subtitle">
+
+                    One beautiful story...
+
+                    <br>
+
+                    And countless beautiful
+                    memories. 💕
+
+                </p>
+
+
+                <button
+                    class="surpriseButton"
+                    onclick="openSurprise()">
+
+                    💌 Open Your Surprise
+
+                </button>
+
+
+                <!-- ================================
+                     LOVE MESSAGE
+                ================================= -->
+
+                <div id="loveMessage">
+
+                    <h2>
+                        For You, Bujji ❤️
+                    </h2>
+
+
+                    <p>
+
+                        You are my sweetest person
+                        in my life. You changed me
+                        everything. ❤️
+
+                        <br><br>
+
+                        Thank you for every smile,
+                        every conversation,
+                        every little moment,
+                        and every beautiful memory. 💕
+
+                        <br><br>
+
+                        Life long neetho undalani undi,
+                        I want so muchhh...
+                        youuu... Bujji... ❤️
+
+                        <br><br>
+
+                        Keep smiling, Bujji...
+
+                        <br>
+
+                        Because your smile is
+                        precious. 🥰
+
+                    </p>
+
+
+                    <div class="forever">
+
+                        durga ❤️ teju
+
+                        <br><br>
+
+                        ♾️ nuvu ante chala chala istam.
+                        Anduko telidu...
+
+                        <br>
+
+                        Next year manam kalisi
+                        celebrate chesukovali...
+                        ok kada neeku...
+
+                        <br>
+
+                        Bujji, I love you... ❤️ ♾️
+
+                    </div>
+
+
+                    <!-- ================================
+                         SONG
+                    ================================= -->
+
+                    <div class="songBox">
+
+                        <h2>
+                            🎵 Our Special Song ❤️
+                        </h2>
+
+                        <p>
+                            This song is just for you,
+                            Bujji... 💕
+                            <br>
+                            Press ▶️ to play.
+                        </p>
+
+                        <audio
+                            controls
+                            preload="metadata">
+
+                            <source
+                                src="memories/song.mp3"
+                                type="audio/mpeg">
+
+                            Your browser does not
+                            support audio playback.
+
+                        </audio>
+
+                    </div>
+
+
+                    <!-- ================================
+                         VIDEO
+                    ================================= -->
+
+                    <div class="videoBox">
+
+                        <h2>
+                            🎥 One More Surprise ❤️
+                        </h2>
+
+                        <p>
+                            I saved one special video
+                            for you, Bujji... 💕
+                        </p>
+
+                        <button
+                            class="videoButton"
+                            onclick="openVideo()">
+
+                            🎥 Watch Our Video ❤️
+
+                        </button>
+
+
+                        <div id="videoContainer">
+
+                            <video
+                                id="myVideo"
+                                controls
+                                playsinline>
+
+                                <source
+                                    src="memories/ourvideo.mp4"
+                                    type="video/mp4">
+
+                                Your browser does not
+                                support video playback.
+
+                            </video>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer">
+
+                    Made with ❤️ specially for you
+
+                    <br>
+
+                    13 August 2026 ✨
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+
+        /* ==================================
+           PASSWORD
+        ================================== */
+
+        const secretPassword = "bujji";
+
+
+        function checkPassword() {
+
+            const enteredPassword =
+                document.getElementById(
+                    "passwordInput"
+                ).value.trim();
+
+
+            if (
+                enteredPassword.toLowerCase()
+                === secretPassword.toLowerCase()
+            ) {
+
+                document.getElementById(
+                    "passwordScreen"
+                ).style.display = "none";
+
+
+                document.getElementById(
+                    "questionScreen"
+                ).style.display = "flex";
+
+            }
+
+            else {
+
+                document.getElementById(
+                    "wrongPassword"
+                ).style.display = "block";
+
+
+                document.getElementById(
+                    "passwordInput"
+                ).value = "";
+
+
+                document.getElementById(
+                    "passwordInput"
+                ).focus();
+
+            }
+
+        }
+
+
+        function checkEnter(event) {
+
+            if (event.key === "Enter") {
+
+                checkPassword();
+
+            }
+
+        }
+
+
+        /* ==================================
+           YES
+        ================================== */
+
+        function openWebsite() {
+
+            document.getElementById(
+                "questionScreen"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "surpriseWebsite"
+            ).style.display = "block";
+
+        }
+
+
+        /* ==================================
+           NO
+        ================================== */
+
+        function doNothing() {
+
+            // Nothing happens ❤️
+
+        }
+
+
+        /* ==================================
+           OPEN SURPRISE
+        ================================== */
+
+        function openSurprise() {
+
+            const message =
+                document.getElementById(
+                    "loveMessage"
+                );
+
+
+            message.style.display =
+                "block";
+
+
+            const button =
+                document.querySelector(
+                    ".surpriseButton"
+                );
+
+
+            button.innerHTML =
+                "❤️ Surprise Opened ❤️";
+
+
+            button.disabled = true;
+
+
+            createHearts();
+
+        }
+
+
+        /* ==================================
+           OPEN VIDEO
+        ================================== */
+
+        function openVideo() {
+
+            const container =
+                document.getElementById(
+                    "videoContainer"
+                );
+
+
+            const video =
+                document.getElementById(
+                    "myVideo"
+                );
+
+
+            container.style.display =
+                "block";
+
+
+            video.play().catch(function() {
+
+                console.log(
+                    "Video requires user interaction."
+                );
+
+            });
+
+
+        }
+
+
+        /* ==================================
+           HEART EXPLOSION
+        ================================== */
+
+        function createHearts() {
+
+            const emojis = [
+                "❤️",
+                "💖",
+                "💕",
+                "💗",
+                "💘",
+                "✨",
+                "🌹"
+            ];
+
+
+            for (
+                let i = 0;
+                i < 35;
+                i++
+            ) {
+
+                const heart =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                heart.innerHTML =
+                    emojis[
+                        Math.floor(
+                            Math.random()
+                            *
+                            emojis.length
+                        )
+                    ];
+
+
+                heart.style.position =
+                    "fixed";
+
+
+                heart.style.left =
+                    Math.random()
+                    * 100
+                    + "vw";
+
+
+                heart.style.top =
+                    "60vh";
+
+
+                heart.style.fontSize =
+                    (
+                        20
+                        +
+                        Math.random()
+                        * 30
+                    )
+                    + "px";
+
+
+                heart.style.zIndex =
+                    "999";
+
+
+                heart.style.pointerEvents =
+                    "none";
+
+
+                document.body.appendChild(
+                    heart
+                );
+
+
+                const animation =
+                    heart.animate(
+
+                        [
+                            {
+                                transform:
+                                    "translateY(0) scale(1)",
+
+                                opacity: 1
+                            },
+
+                            {
+                                transform:
+                                    "translateY(-550px) scale(1.6) rotate(30deg)",
+
+                                opacity: 0
+                            }
+                        ],
+
+                        {
+                            duration:
+                                1500
+                                +
+                                Math.random()
+                                * 1500,
+
+                            easing:
+                                "ease-out"
+                        }
+
+                    );
+
+
+                animation.onfinish =
+                    function () {
+
+                        heart.remove();
+
+                    };
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
